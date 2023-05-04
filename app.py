@@ -52,3 +52,7 @@ def index():
         return render_template("index.html", gif=gif, input_text=input_text)
     else:
         return render_template("index.html")
+
+
+if __name__ == "__main__":
+    app.run()
