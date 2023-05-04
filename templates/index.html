@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <title>Text-To-Sign-Language</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="h-full bg-gray-200">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold mb-8 text-center">Text-To-Sign-Language</h1>
+      <form method="POST" action="/" class="flex mb-8">
+        <input
+          type="text"
+          name="input_text"
+          id="input_text"
+          class="flex-grow border-gray-400 border-2 rounded-l px-4 py-2 mr-4 focus:outline-none focus:border-blue-400"
+          placeholder="Enter a word or phrase"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-r focus:outline-none"
+        >
+          Convert to GIF
+        </button>
+      </form>
+      {% if gif %}
+      <div class="flex justify-center">
+        <img
+          src="data:image/gif;base64,{{ gif }}"
+          alt="Converted GIF"
+          class="max-w-full"
+        />
+      </div>
+      <p class="text-center text-lg">{{ input_text }}</p>
+      {% elif error %}
+      <p class="text-red-600 font-bold">{{ error }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
